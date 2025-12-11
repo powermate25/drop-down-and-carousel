@@ -9,7 +9,7 @@ body {
 }
 
 .header-div {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     height: 2rem;
     display: flex;
     justify-content: start;
