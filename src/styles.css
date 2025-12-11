@@ -7,3 +7,12 @@ body {
 * {
     box-sizing: border-box; 
 }
+
+.header-div {
+    /* border: 1px solid red; */
+    height: 2rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
