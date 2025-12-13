@@ -51,7 +51,7 @@ const menuDisplay = function (menuDivElement, menuBtnElement, menuListElement) {
             hideMenuList()
         })
         
-    } else { clog ("🔔 Waiting for valid element selectors as function parameters") }
+    } else { throw new Error("🔔 Waiting for valid element selectors as function parameters") }
 }
 
 export { menuDisplay }
