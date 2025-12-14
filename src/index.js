@@ -28,7 +28,5 @@ previousShowBtn.addEventListener("click", () => {
     previousCarousel()
 })
 
-
-
-const allCarouselImages = document.querySelectorAll(".slides-container img")
-clog(allCarouselImages.length)
+// Advancing carousel every 5 secondes
+setInterval( () => { nextCarousel() }, 5000 );
