@@ -18,7 +18,7 @@ const menuDisplay = function (menuDivElement, menuBtnElement, menuListElement) {
     if (menuBtn && menuList) {
         const showMenuList = function () {
             menuList.style.visibility = "visible"
-            menuList.style.position = "fixed"
+            menuList.style.position = "absolute"
             menuList.style.listStyle = "none"
             menuList.style.margin = "0"
             menuList.style.padding = "0"

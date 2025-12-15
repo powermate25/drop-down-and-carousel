@@ -18,12 +18,12 @@ menuDisplay(".menuItem3", ".title", "ul")
 
 // Image Carousel
 
-const nextShowBtn = document.querySelector(".carousel-navigation #next-button")
+const nextShowBtn = document.querySelector(".main-frame #nav-right")
 nextShowBtn.addEventListener("click", () => {
     nextCarousel()
-})
+}) 
 
-const previousShowBtn = document.querySelector(".carousel-navigation #previous-button")
+const previousShowBtn = document.querySelector(".main-frame #nav-left")
 previousShowBtn.addEventListener("click", () => {
     previousCarousel()
 })

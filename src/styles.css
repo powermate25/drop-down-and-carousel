@@ -17,47 +17,94 @@ body {
     /* border: 1px solid red; */
     height: 2rem;
     display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-
-.slides-container {
-    border: 1px solid blue;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-
-.main-frame {
-    border: 1px solid red;
-    width: 18rem;
-    height: 18rem;
-    display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden ;
+    
+}
+menu div {
+    /* border: 1px solid red; */
+    text-align: center;
+   
+}
 
+.header-div ul {
+    background-color: rgb(6, 6, 6);
+    color: #ffffff;
+    border-radius: 6px;
+    width: 6rem;
+    margin: 0;
+    text-align: center;
+    z-index: 3;
+}
+
+.carousel-session {
+    margin: 6rem 0 0 0 ;
+}
+.main-frame {
+    /* border: 1px solid rgb(0, 255, 208); */
+    width: 18rem;
+    height: 18rem;
+    display: grid;
+}
+
+.slides-container {
+    /* border: 1px solid blue; */
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    z-index: 0;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden ;
 }
 
 .slides-container img {
-    /* width: 10rem; */
     width: 100%;
-    /* visibility: hidden; */
-    
 }
 
-.carousel-navigation {
-    border: 1px solid purple;
-    width: 18rem;
+
+.slides-navigation {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    z-index: 1;
+    width: 100%;
+    padding: 0.2rem;
+    /* border: 2px solid rgb(0, 255, 51); */
+}
+
+
+
+.main-frame #nav-left, .main-frame #nav-right {
+    width: 2rem; 
+}
+
+.nav-arrows {
+    /* border: 1px solid blue; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1rem;
-
+    height: 100%;
 }
 
-.carousel-navigation button {
-    width: 40%;
+.nav-circle {
+    /* border: 1px solid rgb(0, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    
+    width: 8rem;
+    height: 2rem;
+    gap: 0.4rem;
+    border-radius: 6px;
+    overflow: hidden;
+
 }
+.nav-circle div {
+    width: 9.5px;
+    height: 9.5px;
+    border-radius: 50%;
+    background-color: #bebebe;
+}
+
