@@ -2,15 +2,33 @@ const mainFrame = document.querySelector(".main-frame")
 const slidesContainer = document.querySelector(".slides-container")
 
 const clog = console.log
+
+// Code
+
+const allCarouselSlides = document.querySelectorAll(".slides-container img")
 let baseSlideIndex = 1
 let nextSlideIndex
 
-const nextCarousel = function () {
-    console.log(`🔔 Carousel show running! Previous slide index is: ${baseSlideIndex}`)
+// Technically this the carousel logic right below (initSlideShow).
 
-    const allCarouselSlides = document.querySelectorAll(".slides-container img")
+const initSlideShow = function (slideIndex) {
+    let slideToShow = document.querySelector(`.slides-container #slide${slideIndex}`)
+    allCarouselSlides.forEach( i => {
+    if(i.id !== slideToShow.id ){ i.style.display = "none"}
+    else { i.style.display = "block" }
+    })
+    
+}
+initSlideShow(baseSlideIndex)
+
+// Logic to navigate the slides using initSlideShow function.
+
+const nextCarousel = function () {
+
+    console.log(`🔔 Carousel show running! Previous slide index is: ${baseSlideIndex}`)
     let totalSlides = allCarouselSlides.length
     nextSlideIndex = ++baseSlideIndex
+
     // Checking nextIndex to show against total carousel length first.
     if ( nextSlideIndex === (totalSlides + 1) ){
         clog (`🚨 End of carousel now reached!`)
@@ -19,10 +37,9 @@ const nextCarousel = function () {
         nextSlideIndex = 1
         baseSlideIndex = 1
     }
-
+    // Executing next slide show
     if (nextSlideIndex <= totalSlides){
-        const nextSlideArt = document.querySelector(`.slides-container #slide${nextSlideIndex}`)
-        nextSlideArt.scrollIntoView()
+        initSlideShow(nextSlideIndex)
         const clickedNavCircle = document.querySelector(`.nav-circle #slide${nextSlideIndex}`)
         clickedNavCircle.click()
         clog(`🔔 Showing index No: ${nextSlideIndex}`)
@@ -30,13 +47,13 @@ const nextCarousel = function () {
     
 }
 
-// Refactor with previousCarousel fn below once i'm back.
 const previousCarousel = function () {
-    console.log(`🔔 Carousel show running! Previous slide index is: ${baseSlideIndex}`)
 
+    console.log(`🔔 Carousel show running! Previous slide index is: ${baseSlideIndex}`)
     const allCarouselImages = document.querySelectorAll(".slides-container img")
     let totalSlides = allCarouselImages.length
     let previousSlideIndex = --baseSlideIndex
+
     if (previousSlideIndex === 0){
         clog (`🚨 Beginning of carousel now reached!`)
         clog (`🚨 Previous Slide would be: ${previousSlideIndex}. But slide show only starts at 1`)
@@ -45,41 +62,42 @@ const previousCarousel = function () {
         baseSlideIndex = totalSlides
     } 
     if (previousSlideIndex <= totalSlides) {
-        const previousSlideArt = document.querySelector(`.slides-container #slide${previousSlideIndex}`)
-        previousSlideArt.scrollIntoView()
+        initSlideShow(previousSlideIndex)
         const clickedNavCircle = document.querySelector(`.nav-circle #slide${previousSlideIndex}`)
         clickedNavCircle.click()
         clog(`🔔 Showing index No: ${previousSlideIndex}`)
     }
 }
 
+// Linking bottom circles to slideShow navigation
 const carouselNavCircles = document.querySelectorAll(".nav-circle .slide-link")
-clog( carouselNavCircles[0])
 
-
-
-const linkCarouselSlideToCircle = function () {
+const linkCarouselSlidesToCircle = function () {
     carouselNavCircles.forEach( i => {
         const linkedSlide = document.querySelector(`.slides-container #${i.id}`)
-        const clickedNavCircle = document.querySelector(`.nav-circle #${i.id}`)
         i.addEventListener("click", (e) => {
             for (let circle in carouselNavCircles){
                 let linkCircle = carouselNavCircles[circle]
                 clog(linkCircle.id)
-                if (linkCircle.id && e.target.id === linkCircle.id ){ linkCircle.style.backgroundColor = "black" }
+                if (linkCircle.id && e.target.id === linkCircle.id ){
+                linkCircle.style.backgroundColor = "black"
+                // Extracting index number from id and Executing slideShow
+                initSlideShow( linkedSlide.id.slice(-1) )
+                }
                 else if (linkCircle.id) { linkCircle.style.backgroundColor = "#bebebe" }
             }
-            
-            linkedSlide.scrollIntoView()
-            let circleIndex = Number ( i.id.slice(-1) )
-            clog( circleIndex ) 
+            let circleIndex = Number ( i.id.slice(-1) ) 
             baseSlideIndex = circleIndex
             clog(`🔔 Linked circle No:${baseSlideIndex} clicked! Now showing linked slide`)
         })
     })
 }
 
-linkCarouselSlideToCircle()
+linkCarouselSlidesToCircle()
+
+// Linking baseSlideIndex to corresponding circle by default
+const clickedCircle = document.querySelector(`.nav-circle #slide${baseSlideIndex}`)
+clickedCircle.click()
 
 /// Exporting
 export { nextCarousel, previousCarousel }

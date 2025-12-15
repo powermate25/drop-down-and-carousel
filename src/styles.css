@@ -56,7 +56,7 @@ menu div {
     display: flex;
     justify-content: start;
     align-items: center;
-    overflow: hidden ;
+    /* overflow: hidden ; */
 }
 
 .slides-container img {
