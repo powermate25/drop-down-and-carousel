@@ -29,4 +29,4 @@ previousShowBtn.addEventListener("click", () => {
 })
 
 // Advancing carousel every 5 secondes
-// setInterval( () => { nextCarousel() }, 5000 );
+setInterval( () => { nextCarousel() }, 5000 );
