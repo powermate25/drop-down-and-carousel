@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drop-down menu & Image Carousel</title>
     <body>
-        <h1>Welcome!</h1>
+        
         <h2>Drop-down menu</h2>
         <div class="header-div">
             <menu class="menuItem1">
@@ -40,23 +40,33 @@
         </menu>
         </div>
         <!--Image Carousel Design-->
-        <h2>Image carousel</h2>
+        <h2 class="carousel-session">Image carousel</h2>
         <div class="main-frame">
+            <div class="slides-navigation">
+                <div class="nav-arrows">
+                    <img id="nav-left" src="03333dd4f5bb0ce17f12.svg" alt="left-arrow">
+                    <img id="nav-right" src="2183cdfbbd589d48b0da.svg" alt="right-arrow"> 
+                </div>
+            </div>
+           
             <div class="slides-container">
-                <img src="7b3ef64bb25bba5f2f56.jpg" alt="" id="art1">
-                <img src="2935f64c22d059f76b50.jpg" alt="" id="art2">
-                <img src="e2e89fca5f09e955caf6.jpg" alt="" id="art3">
-                <img src="0721b55f7bc995bf65f1.jpg" alt="" id="art4">
-                <img src="d8c32bea8db63ecf747f.jpg" alt="" id="art5">
-                <img src="5854965e5b7fadeb3101.jpg" alt="" id="art6">
+                <img src="7b3ef64bb25bba5f2f56.jpg" alt="" id="slide1">
+                <img src="2935f64c22d059f76b50.jpg" alt="" id="slide2">
+                <img src="e2e89fca5f09e955caf6.jpg" alt="" id="slide3">
+                <img src="0721b55f7bc995bf65f1.jpg" alt="" id="slide4">
+                <img src="d8c32bea8db63ecf747f.jpg" alt="" id="slide5">
+                <img src="5854965e5b7fadeb3101.jpg" alt="" id="slide6">
             </div>
         </div>
-        <div class="carousel-navigation">
-            <button id="previous-button">Previous</button>
-            <button id="next-button">Next</button>
-            
-            
+        <div class="nav-circle">
+            <div class="slide-circle slide-link" id="slide1"></div>
+            <div class="slide-circle slide-link" id="slide2"></div>
+            <div class="slide-circle slide-link" id="slide3"></div>
+            <div class="slide-circle slide-link" id="slide4"></div>
+            <div class="slide-circle slide-link" id="slide5"></div>
+            <div class="slide-circle slide-link" id="slide6"></div>
         </div>
+        
         
     </body>
 </html> 
